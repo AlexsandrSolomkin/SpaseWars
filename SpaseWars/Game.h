@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics/Texture.hpp>
+
 #include "GameStatePlay.h"
 
 namespace sf
@@ -25,9 +26,14 @@ struct Game
 	GameStatePlay gameStatePlay;
 
 	void init(sf::RenderWindow* window);
+
 	void setGameState(GameStateType newGameStateType);
+
+	void handleInput(const sf::Event& EVENT);
 	void update(float deltaSeconds);
 	void draw();
+
+	void restartGame();
 };
 
 Game& getGame();

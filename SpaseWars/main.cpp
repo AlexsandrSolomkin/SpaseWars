@@ -25,6 +25,7 @@ int main()
 				window.close();
 				break;
 			}
+			game.handleInput(event);
 		}
 		game.update(CLOCK_DELTA_SECONDS);
 		game.draw();
