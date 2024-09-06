@@ -24,7 +24,19 @@ void Game::setGameState(GameStateType newGameStateType)
 	switch (gameStateType)
 	{
 	case GameStateType::Play:
+		gameStatePlay.deinit();
+		gameStatePlay = GameStatePlay();
 		gameStatePlay.init();
+		break;
+	}
+}
+
+void Game::handleInput(const sf::Event& EVENT)
+{
+	switch (gameStateType)
+	{
+	case GameStateType::Play:
+		gameStatePlay.handleInput(EVENT);
 		break;
 	}
 }
@@ -51,6 +63,12 @@ void Game::draw()
 	}
 
 	window->display();
+}
+
+void Game::restartGame()
+{
+	setGameState(GameStateType::None);
+	setGameState(GameStateType::Play);
 }
 
 Game& getGame()

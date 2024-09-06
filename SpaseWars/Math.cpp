@@ -21,3 +21,18 @@ sf::Vector2f Math::getNormalizedVector(const sf::Vector2f& VECTOR)
 		return VECTOR;
 	}
 }
+
+sf::Vector2f Math::getRectCenter(const sf::FloatRect& RECT)
+{
+	return { RECT.left + RECT.width / 2, RECT.top + RECT.height / 2};
+}
+
+int Math::randIntRange(int min, int max)
+{
+	return min + rand() % (max - min + 1);
+}
+
+float Math::randFloatRange(float min, float max)
+{
+	return min + ((max - min) * (rand() / (float)RAND_MAX));
+}
