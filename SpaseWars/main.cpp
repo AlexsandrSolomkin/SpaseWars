@@ -9,7 +9,7 @@ int main()
 	game.init(&window);
 
 	sf::Clock clock;
-
+	
 	while (window.isOpen())
 	{
 		sf::sleep(sf::seconds(0.001f));
@@ -27,6 +27,7 @@ int main()
 			}
 			game.handleInput(event);
 		}
+		
 		game.update(CLOCK_DELTA_SECONDS);
 		game.draw();
 	}

@@ -132,22 +132,30 @@
   <ItemGroup>
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="AsteroidSpawner.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameSettings.cpp" />
+    <ClCompile Include="GameStateMenu.cpp" />
     <ClCompile Include="GameStatePlay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="VerticalButtonList.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="AsteroidSpawner.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameSettings.h" />
+    <ClInclude Include="GameStateMenu.h" />
     <ClInclude Include="GameStatePlay.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="VerticalButtonList.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -38,6 +38,12 @@ void World::handleInput(const sf::Event& EVENT)
 
 void World::update(float deltaSeconds)
 {
+	updateEnitites(deltaSeconds);
+	checkCollision();
+}
+
+void World::updateEnitites(float deltaSeconds)
+{
 	asteroidSpawner->update(*this, deltaSeconds);
 	player->update(deltaSeconds);
 
@@ -56,7 +62,10 @@ void World::update(float deltaSeconds)
 			asteroids[i]->update(*this, deltaSeconds);
 		}
 	}
+}
 
+void World::checkCollision()
+{
 	for (int i = 0; i < projectiles.size(); ++i)
 	{
 		if (!projectiles[i]->bIsDestroyed)
@@ -102,7 +111,7 @@ Projectile* World::createProjectile(const sf::Vector2f& POSITION, const sf::Vect
 	return projectile;
 }
 
-Asteroid* World::createAsteroid(const sf::Vector2f& POSITION, const sf::Vector2f& DIRECTION, float speed)
+Asteroid* World::createSmallAsteroid(const sf::Vector2f& POSITION, const sf::Vector2f& DIRECTION, float speed)
 {
 	Asteroid* asteroid = new Asteroid();
 
@@ -110,6 +119,19 @@ Asteroid* World::createAsteroid(const sf::Vector2f& POSITION, const sf::Vector2f
 
 	asteroid->init(getGame().gameTexture¿steroids, sf::IntRect(15, 11, 56, 54), sf::FloatRect(POSITION.x, POSITION.y, 56, 54), DIRECTION, speed, ROTATION_SPEED);
 	
+	asteroids.push_back(asteroid);
+
+	return asteroid;
+}
+
+Asteroid* World::createBigAsteroid(const sf::Vector2f& POSITION, const sf::Vector2f& DIRECTION, float speed)
+{
+	Asteroid* asteroid = new Asteroid();
+
+	const float ROTATION_SPEED = Math::randFloatRange(5.f, 15.f);
+
+	asteroid->init(getGame().gameTexture¿steroids, sf::IntRect(80, 154, 57, 64), sf::FloatRect(POSITION.x, POSITION.y, 57, 64), DIRECTION, speed, ROTATION_SPEED);
+
 	asteroids.push_back(asteroid);
 
 	return asteroid;
