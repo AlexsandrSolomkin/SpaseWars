@@ -1,8 +1,11 @@
 #pragma once
 
+#include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
 #include "GameStatePlay.h"
+#include "GameStateMenu.h"
+#include "GameSettings.h"
 
 namespace sf
 {
@@ -12,6 +15,7 @@ namespace sf
 enum class GameStateType
 {
 	None,
+	Menu,
 	Play
 };
 
@@ -22,8 +26,13 @@ struct Game
 	sf::Texture gameTextureShips;
 	sf::Texture gameTexture¿steroids;
 
+	sf::Font defaultFont;
+
+	GameSettings gameSetting;
+
 	GameStateType gameStateType = GameStateType::None;
 	GameStatePlay gameStatePlay;
+	GameStateMenu gameStateMenu;
 
 	void init(sf::RenderWindow* window);
 
